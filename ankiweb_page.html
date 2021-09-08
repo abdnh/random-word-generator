@@ -1,38 +1,31 @@
 <b>Random Word Generator for Anki</b>
-<p>An Anki add-on for generating random lists of words from input text files.</p>
-<p>Useful for practicing vocabulary by trying to write a creative story that includes the generated words, or just for
-    finding
-    interesting words you never knew existed!</p>
-<p>To use with your word list, copy your file containing blank-delimited words to the <code>wordlists</code>
-    subdirectory in the add-on's directory. The file should have the <code>txt</code> extension. Word lists for some
-    languages are included with the add-on.</p>
-<p>The add-on can either be used to generate a list of words from the the add-on icon in the note editor and the menu
-    item in the Tools menu of the main screen, or it can be used as a filter in your card templates to dynamically
-    generate different lists each time you see a card.</p>
-<p>The add-on's custom filter is named <code>randlist</code> and it has some options to customize its behavior:</p>
-<pre><code><code><div>{{randlist words=en start=1000 end=2000 length=10:}}
-</div></code></code></pre>
+
+An Anki add-on for generating random lists of words from input text files.
+Useful for practicing vocabulary by trying to write a creative story that includes the generated words, or just for
+finding interesting words you never knew existed!
+
+To use with your word list, copy your file containing blank-delimited words to the <code>wordlists</code> subdirectory
+in the add-on's directory. The file should have the <code>txt</code> extension. Word lists for some languages are
+included with the add-on.
+
+The add-on can either be used to generate a list of words from the the add-on icon in the note editor and the menu item
+in the Tools menu of the main screen, or it can be used as a filter in your card templates to dynamically generate
+different lists each time you see a card.
+The add-on's custom filter is named <code>randlist</code> and it has some options to customize its behavior:
+<code>{{randlist words=en start=1000 end=2000 length=10:}}</code>
 <ul>
-    <li>The <code>words</code> option denotes the input file in the <code>wordlists</code> subdirectory you want to generate the list from. It should be written
-        without <code>.txt</code>. The default value is <code>en</code>.</li>
-    <li><code>start</code> denotes the position in the input list to start randomly choosing words from. The default is
-        <code>0</code> (0-based indexing is used).
-    </li>
-    <li><code>end</code> denotes the position in input list to limit chosen words to the ones before it (the word at
-        index <code>end</code> is excluded). The default is the length of the input list, so words are chosen from the whole list.</li>
-    <li><code>length</code> denotes the number of words in the generated list. The default is the magic number
-        <code>7</code>.
-    </li>
+<li>The <code>words</code> option denotes the input file in the <code>wordlists</code> subdirectory you want to generate the list from. It should be written without <code>.txt</code>. The default value is <code>en</code>.</li>
+<li><code>start</code> denotes the position in the input list to start randomly choosing words from. The default is <code>0</code> (0-based indexing is used).</li>
+<li><code>end</code> denotes the position in input list to limit chosen words to the ones before it (the word at index <code>end</code> is excluded). The default is the length of the input list, so words are chosen from the whole list.</li>
+<li><code>length</code> denotes the number of words in the generated list. The default is the magic number <code>7</code>.</li>
 </ul>
-<p>The <code>start</code>, <code>end</code>, and <code>length</code> options are useful if you have a word list sorted
-    by frequency (i.e. a frequency list),
-    and only want to get words from a certain range, like the first 5000 words so that you concentrate on learning the
-    most
-    common words first.</p>
-<p>See <a href="https://drive.google.com/file/d/1tG_uvA8k8wF-72lhHMkqwRIQVFbP6A3p/view?usp=sharing">this demo deck</a> for an example card template that uses the custom filter.</p>
+The <code>start</code>, <code>end</code>, and <code>length</code> options are useful if you have a word list sorted by
+frequency (i.e. a frequency list), and only want to get words from a certain range, like the first 5000 words so that
+you concentrate on learning the most common words first.
+
+See <a href="https://drive.google.com/file/d/1tG_uvA8k8wF-72lhHMkqwRIQVFbP6A3p/view?usp=sharing">this demo deck</a> for an example card template that uses the custom filter.
+
 <b>References</b>
 <ul>
-    <li>You can find word lists for many languages here: <a
-            href="https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists">https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists</a>
-    </li>
+<li>You can find word lists for many languages here: <a href="https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists">https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists</a></li>
 </ul>
