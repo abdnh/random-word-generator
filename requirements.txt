@@ -1,0 +1,4 @@
+anki
+aqt
+black
+pyqt5==5.15.2
