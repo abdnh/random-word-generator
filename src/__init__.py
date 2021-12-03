@@ -26,7 +26,7 @@ def randomlist_filter(
 
     try:
         config = {}
-        for key, value in map(lambda c: c.split("="), filter_name.split(" ")[1:]):
+        for key, value in map(lambda c: c.split("="), filter_name.split()[1:]):
             config[key] = value
 
         config["words"] = get_wordlist(config.get("words", "en"))
