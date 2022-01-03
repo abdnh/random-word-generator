@@ -2,31 +2,46 @@ import argparse
 import sys
 import random
 import os
+from typing import Optional, List, Set
 
-WORDLIST_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "wordlists")
+wordlist_dirs = [
+    os.path.join(os.path.dirname(__file__), "user_files/wordlists"),
+    os.path.join(os.path.dirname(__file__), "default_wordlists"),
+]
 
 wordlists = {}
 
 
-def get_wordlist_labels():
-    files = []
-    for file in os.listdir(WORDLIST_DIR):
-        if file.endswith(".txt"):
-            file = file[:-4]
-            files.append(file)
+def get_wordlist_labels() -> Set[str]:
+    labels = set()
+    for wordlist_dir in wordlist_dirs:
+        for file in os.listdir(wordlist_dir):
+            if file.endswith(".txt"):
+                file = file[:-4]
+                labels.add(file)
 
-    return files
+    return labels
 
 
-def get_wordlist(label: str):
-    if words := wordlists.get(label, None):
+def get_wordlist_filename_from_label(label: str) -> Optional[str]:
+    for wordlist_dir in wordlist_dirs:
+        filename = os.path.join(wordlist_dir, label + ".txt")
+        if os.path.exists(filename):
+            return filename
+    return None
+
+
+def get_wordlist(label: str) -> List[str]:
+    if words := wordlists.get(label):
         return words
     else:
-        filename = os.path.join(WORDLIST_DIR, label + ".txt")
-        with open(filename, encoding="utf-8") as f:
-            words = f.read().split()
-            wordlists[label] = words
-            return words
+        filename = get_wordlist_filename_from_label(label)
+        if filename:
+            with open(filename, encoding="utf-8") as f:
+                words = f.read().split()
+                wordlists[label] = words
+                return words
+        return []
 
 
 def randomlist(words, start=0, end=-1, length=7):

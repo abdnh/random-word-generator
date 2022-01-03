@@ -4,9 +4,9 @@ An Anki add-on for generating random lists of words from input text files.
 Useful for practicing vocabulary by trying to write a creative story that includes the generated words, or just for
 finding interesting words you never knew existed!
 
-To use with your word list, copy your file containing blank-delimited words to the <code>wordlists</code> subdirectory
-in the add-on's directory. The file should have the <code>txt</code> extension. Word lists for some languages are
-included with the add-on.
+To use with your word list, copy your file containing blank-delimited words to the <code>user_files/wordlists</code> subfolder
+in the add-on's folder. The file should have the <code>txt</code> extension. Word lists for some languages are
+included with the add-on in the <code>default_wordlists</code> folder.
 
 The add-on can either be used to generate a list of words from the the add-on icon in the note editor and the menu item
 in the Tools menu of the main screen, or it can be used as a filter in your card templates to dynamically generate
@@ -14,7 +14,7 @@ different lists each time you see a card.
 The add-on's custom filter is named <code>randlist</code> and it has some options to customize its behavior:
 <code>{{randlist words=en start=1000 end=2000 length=10:}}</code>
 <ul>
-<li>The <code>words</code> option denotes the input file in the <code>wordlists</code> subdirectory you want to generate the list from. It should be written without <code>.txt</code>. The default value is <code>en</code>.</li>
+<li>The <code>words</code> option denotes the input file in the wordlists folders you want to generate the list from. It should be written without <code>.txt</code>. The default value is <code>en</code>.</li>
 <li><code>start</code> denotes the position in the input list to start randomly choosing words from. The default is <code>0</code> (0-based indexing is used).</li>
 <li><code>end</code> denotes the position in input list to limit chosen words to the ones before it (the word at index <code>end</code> is excluded). The default is the length of the input list, so words are chosen from the whole list.</li>
 <li><code>length</code> denotes the number of words in the generated list. The default is the magic number <code>7</code>.</li>
