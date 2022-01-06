@@ -15,6 +15,8 @@ wordlists = {}
 def get_wordlist_labels() -> Set[str]:
     labels = set()
     for wordlist_dir in wordlist_dirs:
+        if not os.path.exists(wordlist_dir):
+            continue
         for file in os.listdir(wordlist_dir):
             if file.endswith(".txt"):
                 file = file[:-4]
