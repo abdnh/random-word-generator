@@ -58,4 +58,4 @@ class RWGDialog(QDialog):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     d = RWGDialog(None)
-    d.exec_()
+    d.exec()

@@ -39,7 +39,7 @@ def randomlist_filter(
 
 def open_dialog(parent):
     dialog = RWGDialog(parent)
-    dialog.exec_()
+    dialog.exec()
 
 
 def on_editor_did_init_buttons(buttons: List[str], editor: Editor):
