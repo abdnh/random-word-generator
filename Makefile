@@ -1,33 +1,18 @@
-.PHONY: all forms build format clean addon zip
+.PHONY: all format clean zip ankiweb run
 
-all: build
+all: ankiweb zip
 
-forms: src/dialog.py
+zip:
+	python -m ankibuild --type package --install --qt all
 
-src/dialog.py: designer/dialog.ui 
-	pyuic5 $^ > $@
+ankiweb:
+	python -m ankibuild --type ankiweb --install --qt all
 
-build: forms
+run: zip
+	python -m ankirun
 
 format:
 	python -m black src
 
-zip: build.zip
-
-build.zip: src/*
-	rm -f $@
-	rm -f src/meta.json
-	rm -rf src/__pycache__
-	( cd src/; zip -r ../$@ * )
-
-addon: zip
-	cp build.zip random-word-generator.ankiaddon
-	cp -r src/* ankiprofile/addons21/random-word-generator
-
 clean:
-	rm -f *.pyc
-	rm -f src/*.pyc
-	rm -f src/__pycache__
-	rm -f src/dialog.py
-	rm -f build.zip
-	rm -f random-word-generator.ankiaddon
+	rm -rf build/

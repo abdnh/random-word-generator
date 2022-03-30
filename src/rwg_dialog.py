@@ -1,14 +1,17 @@
 import sys
-import os
-
-from PyQt5.QtWidgets import QDialog, QApplication, QShortcut
-from PyQt5.QtGui import QKeySequence
 
 if __name__ == "__main__":
-    import dialog as rwg_form
+    from PyQt6.QtWidgets import QDialog, QApplication
+    import form_qt6 as rwg_form
     from randomlist import randomlist, get_wordlist_labels, get_wordlist
 else:
-    from . import dialog as rwg_form
+    from aqt import qtmajor
+    from aqt.qt import *
+
+    if qtmajor > 5:
+        from . import form_qt6 as rwg_form
+    else:
+        from . import form_qt5 as rwg_form
     from .randomlist import randomlist, get_wordlist_labels, get_wordlist
 
 

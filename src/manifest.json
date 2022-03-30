@@ -1,4 +1,1 @@
-{
-    "package": "random_word_generator",
-    "name": "Random Word Generator"
-}
+{"name": "Random Word Generator", "homepage": "https://github.com/abdnh/random-word-generator/", "package": "random_word_generator", "conflicts": ["1730954919"]}

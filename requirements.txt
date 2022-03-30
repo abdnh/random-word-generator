@@ -1,4 +1,5 @@
 anki
 aqt
 black
-pyqt5==5.15.2
+ankibuild
+git+https://github.com/abdnh/ankibuild#egg=ankibuild[qt5,qt6]
