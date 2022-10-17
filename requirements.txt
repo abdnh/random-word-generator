@@ -1,5 +1,4 @@
 anki
 aqt
 black
-ankibuild
-git+https://github.com/abdnh/ankibuild#egg=ankibuild[qt5,qt6]
+ankibuild @ git+https://github.com/abdnh/ankibuild#egg=ankibuild[qt5,qt6]
